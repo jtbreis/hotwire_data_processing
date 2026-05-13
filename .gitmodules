@@ -1,0 +1,3 @@
+[submodule "mcflow-plotting"]
+	path = mcflow-plotting
+	url = git@github.com:jtbreis/mcflow-plotting.git

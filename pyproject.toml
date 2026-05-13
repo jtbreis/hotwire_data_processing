@@ -1,0 +1,5 @@
+[tool.pyright]
+extraPaths = ["mcflow-plotting/src"]
+
+[tool.basedpyright]
+extraPaths = ["mcflow-plotting/src"]

@@ -1,0 +1,39 @@
+{
+    // Basic Python devcontainer for plotting and data analysis
+    "name": "Python Data Analysis (plots + Jupyter)",
+    // Use an official devcontainer Python image
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+
+    // VS Code customizations: useful extensions and settings
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-renderers",
+                "ms-python.python-editing",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                // basic python settings for data work
+                "python.formatting.provider": "black",
+                "python.analysis.typeCheckingMode": "basic",
+                "python.testing.pytestEnabled": true
+            }
+        }
+    },
+
+    "postCreateCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt",
+
+    // Mount workspace into the container and set working folder
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "mounts": [
+        "source=/Users/julian/phd-research/data,target=/workspace/data,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    ],
+
+    // Use the default non-root user provided by images
+    "remoteUser": "vscode"
+}
