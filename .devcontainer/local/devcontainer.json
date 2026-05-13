@@ -1,8 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  // Same config for VS Code/Cursor Dev Containers (local Docker) and GitHub Codespaces.
-  // Avoid Codespaces-only mounts, secrets, or paths; use ${workspaceFolder} for repo-relative paths.
-  "name": "Hot-wire data processing",
+  "name": "Hot-wire (local Docker)",
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
   "remoteUser": "vscode",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
@@ -20,8 +18,5 @@
         ]
       }
     }
-  },
-  "remoteEnv": {
-    "MPLBACKEND": "Agg"
   }
 }

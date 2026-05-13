@@ -1,7 +1,0 @@
-# Minimal runtime for hot-wire scripts + mcflow_plotting (install package with --no-deps).
-# Use when ``pip install -e ./mcflow-plotting`` fails on optional ``freud-analysis`` (Voronoi helpers only).
-numpy>=1.23
-matplotlib>=3.7
-scipy>=1.10
-pandas>=2
-h5py>=3.8

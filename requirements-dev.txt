@@ -1,0 +1,7 @@
+# Runtime for hot-wire scripts + editable mcflow_plotting (use with: pip install -e ./mcflow-plotting --no-deps).
+# Skips freud-analysis (Voronoi helpers in mcflow_plotting only).
+numpy>=1.23
+matplotlib>=3.7
+scipy>=1.10
+pandas>=2
+h5py>=3.8
