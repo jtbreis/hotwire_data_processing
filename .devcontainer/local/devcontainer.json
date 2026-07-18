@@ -3,6 +3,14 @@
   "name": "Hot-wire (local Docker)",
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
   "remoteUser": "vscode",
+  // Host PhD data tree (must contain hotwire/tti_no_gravity/...) -> /workspace/data in the container.
+  // Change `source` if this path differs on another machine.
+  "mounts": [
+    "source=${localEnv:HOME}/phd-research/data,target=/workspaces/hotwire_data_processing/data,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/phd-research/plots,target=/workspaces/hotwire_data_processing/plots,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/phd-research/notebook,target=/workspaces/hotwire_data_processing/notebook,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/phd-research/reference_literature,target=/workspaces/hotwire_data_processing/reference_literature,type=bind,consistency=cached",
+  ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {

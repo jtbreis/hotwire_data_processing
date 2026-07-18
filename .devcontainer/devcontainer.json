@@ -5,6 +5,13 @@
   "name": "Hot-wire data processing",
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
   "remoteUser": "vscode",
+  // Scripts read /workspace/data/hotwire/... (not repo data/, which is gitignored and often empty).
+  // Default host path: $HOME/phd-research/data — edit `source` if your tree lives elsewhere.
+  "mounts": [
+    "source=${localEnv:HOME}/phd-research/data,target=/workspaces/hotwire_data_processing/data,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/phd-research/plots,target=/workspaces/hotwire_data_processing/plots,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/phd-research/notebook,target=/workspaces/hotwire_data_processing/notebook,type=bind,consistency=cached"
+  ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {

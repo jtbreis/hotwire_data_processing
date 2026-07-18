@@ -11,9 +11,9 @@ There are two configurations under [`.devcontainer/`](.devcontainer/); both run 
 | **Local Docker** (VS Code / Cursor) | [`.devcontainer/local/devcontainer.json`](.devcontainer/local/devcontainer.json) | No headless Matplotlib override—better if you use an interactive backend in the container. |
 | **GitHub Codespaces** | [`.devcontainer/codespaces/devcontainer.json`](.devcontainer/codespaces/devcontainer.json) | Sets `MPLBACKEND=Agg` for a typical headless codespace. |
 
-**Local:** Command Palette → **Dev Containers: Reopen in Container** (or **Rebuild Container**) → choose **Hot-wire (local Docker)**.
+**Local:** Command Palette → **Dev Containers: Reopen in Container** (or **Rebuild Container**) → choose **Hot-wire (local Docker)** (or the root **Hot-wire data processing** config—they use the same data mount).
 
-**Codespaces:** Use the badge or URL below so **`devcontainer_path`** selects the Codespaces config. If you use **Code → Create codespace** without that parameter, pick **Hot-wire (Codespaces)** under advanced options (or the configuration dropdown).
+**Data mount (local Docker):** Scripts read **`/workspace/data/hotwire/...`**, not the empty gitignored **`data/`** folder in the repo. The dev container bind-mounts **`$HOME/phd-research/data`** on your machine to **`/workspace/data`**. Edit the `source=` path in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json) (or [`local/devcontainer.json`](.devcontainer/local/devcontainer.json)) if your data lives elsewhere, then **Rebuild Container**. If the host path is wrong or missing, Docker often mounts an **empty** directory instead of failing—check with `ls /workspace/data/hotwire/tti_no_gravity` after rebuild.
 
 ### GitHub Codespaces
 
